@@ -16,7 +16,7 @@ eureka:
       defaultZone: ${SERVICE_REGISTRY_URL}/eureka
 app:
   mqtt:
-    broker: ${MQTT_BROKER:tcp://localhost:1883}
+    broker: ${MQTT_BROKER}
     client-id: AUDIT-SERVICE
     username: ${MQTT_USERNAME}
     password: ${MQTT_PASSWORD}
