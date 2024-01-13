@@ -1,0 +1,22 @@
+server:
+  port: ${PORT:9002}
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URL}/audit
+  application:
+    name: AUDIT-SERVICE
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${SERVICE_REGISTRY_URL}/eureka
+app:
+  mqtt:
+    broker: ${MQTT_BROKER:tcp://localhost:1883}
+    client-id: AUDIT-SERVICE
+    username: ${MQTT_USERNAME}
+    password: ${MQTT_PASSWORD}
