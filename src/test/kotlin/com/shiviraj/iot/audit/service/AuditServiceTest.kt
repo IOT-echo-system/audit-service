@@ -1,10 +1,10 @@
 package com.shiviraj.iot.audit.service
 
 import com.shiviraj.iot.audit.builder.AuditBuilder
+import com.shiviraj.iot.audit.builder.AuditMessageBuilder
 import com.shiviraj.iot.audit.model.IdType
 import com.shiviraj.iot.audit.repository.AuditRepository
 import com.shiviraj.iot.audit.testUtils.assertNextWith
-import com.shiviraj.iot.mqtt.model.AuditMessageBuilder
 import com.shiviraj.iot.utils.service.IdGeneratorService
 import io.kotest.matchers.shouldBe
 import io.mockk.clearAllMocks
