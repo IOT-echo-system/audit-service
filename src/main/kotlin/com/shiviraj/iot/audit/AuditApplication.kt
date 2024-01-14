@@ -6,8 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan(basePackages = ["com.shiviraj.iot.utils", "com.shiviraj.iot.mqtt"])
-@ConfigurationPropertiesScan
+@ComponentScan(basePackages = ["com.shiviraj.iot"])
+@ConfigurationPropertiesScan(basePackages = ["com.shiviraj.iot"])
 class AuditApplication {
     companion object {
         @JvmStatic
