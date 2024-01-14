@@ -17,6 +17,6 @@ eureka:
 app:
   mqtt:
     broker: ${MQTT_BROKER}
-    client-id: AUDIT-SERVICE
+    client-id: ${spring.application.name}
     username: ${MQTT_USERNAME}
     password: ${MQTT_PASSWORD}
