@@ -35,7 +35,7 @@ class AuditServiceTest {
     @Test
     fun `should add new audit`() {
         val auditMessage = AuditMessageBuilder(timestamp = LocalDateTime.of(2024, 1, 1, 1, 1)).build()
-        val audit = AuditBuilder(auditId = "AuditId", accountId = "", deviceId = "", timestamp = LocalDateTime.of(2024, 1, 1, 1, 1)).build()
+        val audit = AuditBuilder(auditId = "AuditId", timestamp = LocalDateTime.of(2024, 1, 1, 1, 1)).build()
 
         every { idGeneratorService.generateId(any()) } returns Mono.just("AuditId")
         every { auditRepository.save(any()) } returns Mono.just(audit)
