@@ -1,11 +1,11 @@
-package com.shiviraj.iot.audit.service
+package com.robotutor.audit.service
 
-import com.shiviraj.iot.audit.builder.AuditBuilder
-import com.shiviraj.iot.audit.builder.AuditMessageBuilder
-import com.shiviraj.iot.audit.model.IdType
-import com.shiviraj.iot.audit.repository.AuditRepository
-import com.shiviraj.iot.audit.testUtils.assertNextWith
-import com.shiviraj.iot.utils.service.IdGeneratorService
+import com.robotutor.audit.builder.AuditBuilder
+import com.robotutor.audit.builder.AuditMessageBuilder
+import com.robotutor.audit.model.IdType
+import com.robotutor.audit.repository.AuditRepository
+import com.robotutor.audit.testUtils.assertNextWith
+import com.robotutor.iot.service.IdGeneratorService
 import io.kotest.matchers.shouldBe
 import io.mockk.clearAllMocks
 import io.mockk.every

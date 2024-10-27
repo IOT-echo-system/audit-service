@@ -1,7 +1,7 @@
-package com.shiviraj.iot.audit.repository
+package com.robotutor.audit.repository
 
-import com.shiviraj.iot.audit.model.Audit
-import com.shiviraj.iot.audit.model.AuditId
+import com.robotutor.audit.model.Audit
+import com.robotutor.audit.model.AuditId
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import org.springframework.stereotype.Repository
 

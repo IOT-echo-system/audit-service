@@ -1,8 +1,8 @@
-package com.shiviraj.iot.audit.model
+package com.robotutor.audit.model
 
-import com.shiviraj.iot.mqtt.model.AuditEvent
-import com.shiviraj.iot.mqtt.model.AuditMessage
-import com.shiviraj.iot.mqtt.model.AuditStatus
+import com.robotutor.iot.models.AuditEvent
+import com.robotutor.iot.models.AuditMessage
+import com.robotutor.iot.models.AuditStatus
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.TypeAlias

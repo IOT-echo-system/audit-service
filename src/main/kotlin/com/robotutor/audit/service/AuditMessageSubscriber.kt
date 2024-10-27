@@ -1,8 +1,8 @@
-package com.shiviraj.iot.audit.service
+package com.robotutor.audit.service
 
-import com.shiviraj.iot.mqtt.model.AuditMessage
-import com.shiviraj.iot.mqtt.model.MqttTopicName
-import com.shiviraj.iot.mqtt.service.MqttSubscriber
+import com.robotutor.iot.models.AuditMessage
+import com.robotutor.iot.models.MqttTopicName
+import com.robotutor.iot.services.MqttSubscriber
 import jakarta.annotation.PostConstruct
 import org.springframework.stereotype.Service
 

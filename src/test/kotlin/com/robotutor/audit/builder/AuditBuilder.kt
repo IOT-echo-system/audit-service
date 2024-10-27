@@ -1,11 +1,15 @@
-package com.shiviraj.iot.audit.builder
+package com.robotutor.audit.builder
 
-import com.shiviraj.iot.mqtt.model.AuditEvent
-import com.shiviraj.iot.mqtt.model.AuditMessage
-import com.shiviraj.iot.mqtt.model.AuditStatus
+import com.robotutor.audit.model.Audit
+import com.robotutor.audit.model.AuditId
+import com.robotutor.iot.models.AuditEvent
+import com.robotutor.iot.models.AuditStatus
+import org.bson.types.ObjectId
 import java.time.LocalDateTime
 
-data class AuditMessageBuilder(
+data class AuditBuilder(
+    val id: ObjectId? = null,
+    val auditId: AuditId = "",
     val status: AuditStatus = AuditStatus.SUCCESS,
     val userId: String = "",
     val accountId: String? = null,
@@ -14,8 +18,10 @@ data class AuditMessageBuilder(
     val event: AuditEvent = AuditEvent.RESET_PASSWORD,
     val timestamp: LocalDateTime = LocalDateTime.now()
 ) {
-    fun build(): AuditMessage {
-        return AuditMessage(
+    fun build(): Audit {
+        return Audit(
+            id = id,
+            auditId = auditId,
             status = status,
             userId = userId,
             accountId = accountId,

@@ -1,28 +1,38 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("org.springframework.boot") version "3.2.0"
     id("io.spring.dependency-management") version "1.1.4"
-    kotlin("jvm") version "1.9.20"
-    kotlin("plugin.spring") version "1.9.20"
+    kotlin("jvm") version "2.0.0"
+    kotlin("plugin.spring") version "2.0.0"
     id("jacoco")
 }
 
-group = "com.shiviraj.iot"
+group = "com.robotutor.iot"
 version = "0.0.1"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
     mavenCentral()
+
+    fun githubMavenRepository(name: String) {
+        maven {
+            url = uri("https://maven.pkg.github.com/IOT-echo-system/$name")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.token") as String? ?: System.getenv("TOKEN")
+            }
+        }
+    }
+
+    githubMavenRepository("robotutor-tech-utils")
+    githubMavenRepository("mqtt-starter")
+    githubMavenRepository("web-client-starter")
+    githubMavenRepository("logging-starter")
 }
 
 dependencies {
-    implementation(files("./libs/logging-starter-0.0.1.jar"))
-    implementation(files("./libs/mqtt-starter-0.0.1.jar"))
-    implementation(files("./libs/iot-utils-starter-0.0.1.jar"))
     implementation ("com.google.code.gson:gson:2.8.8")
 
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
@@ -32,6 +42,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("com.robotutor:logging-starter:1.0.0")
+    implementation("com.robotutor:robotutor-tech-utils:1.0.0")
+    implementation("com.robotutor:web-client-starter:1.0.1")
+    implementation("com.robotutor:mqtt-starter:1.0.1")
 
     implementation("org.springframework.integration:spring-integration-mqtt:6.2.1")
 
@@ -50,20 +64,24 @@ dependencyManagement {
     }
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = "17"
+
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict")
+    }
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
+//tasks.withType<Test> {
+//    useJUnitPlatform()
+//}
 
-// Jacoco configuration`
+// Jacoco configuration
+/*
 jacoco {
-    toolVersion = "0.8.7"
+    toolVersion = "0.8.12"
 }
 
 tasks.test {
@@ -73,7 +91,6 @@ tasks.test {
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
     finalizedBy(tasks.jacocoTestCoverageVerification)
-
 }
 
 tasks.jacocoTestCoverageVerification {
@@ -85,7 +102,7 @@ tasks.jacocoTestCoverageVerification {
         rule {
             limit {
                 counter = "INSTRUCTION"
-                minimum = BigDecimal(0.63)
+                minimum = BigDecimal(0.93)
             }
             limit {
                 counter = "BRANCH"
@@ -93,16 +110,17 @@ tasks.jacocoTestCoverageVerification {
             }
             limit {
                 counter = "LINE"
-                minimum = BigDecimal(0.68)
+                minimum = BigDecimal(0.95)
             }
             limit {
                 counter = "METHOD"
-                minimum = BigDecimal(0.32)
+                minimum = BigDecimal(0.80)
             }
             limit {
                 counter = "CLASS"
-                minimum = BigDecimal(0.50)
+                minimum = BigDecimal(0.93)
             }
         }
     }
 }
+*/

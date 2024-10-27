@@ -1,12 +1,12 @@
-package com.shiviraj.iot.audit.service
+package com.robotutor.audit.service
 
-import com.shiviraj.iot.audit.model.Audit
-import com.shiviraj.iot.audit.model.IdType
-import com.shiviraj.iot.audit.repository.AuditRepository
-import com.shiviraj.iot.loggingstarter.logOnError
-import com.shiviraj.iot.loggingstarter.logOnSuccess
-import com.shiviraj.iot.mqtt.model.AuditMessage
-import com.shiviraj.iot.utils.service.IdGeneratorService
+import com.robotutor.audit.model.Audit
+import com.robotutor.audit.model.IdType
+import com.robotutor.audit.repository.AuditRepository
+import com.robotutor.iot.models.AuditMessage
+import com.robotutor.iot.service.IdGeneratorService
+import com.robotutor.loggingstarter.logOnError
+import com.robotutor.loggingstarter.logOnSuccess
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 

@@ -1,6 +1,6 @@
-package com.shiviraj.iot.audit.exception
+package com.robotutor.audit.exception
 
-import com.shiviraj.iot.userService.exceptions.ServiceError
+import com.robotutor.iot.exceptions.ServiceError
 
 
 enum class IOTError(override val errorCode: String, override val message: String) : ServiceError {
