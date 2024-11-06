@@ -15,7 +15,7 @@ app:
     clientId: ${spring.application.name}
     password: ${MQTT_PASSWORD}
   utils:
-    auth-service-base-url: ${AUTH_SERVICE_BASE_URL}
+    auth-service-base-url: http://localhost:${server.port}
     internal-access-token: ${INTERNAL_ACCESS_TOKEN}
     validate-path: /auth/validate
     open-api-endpoints:
