@@ -48,6 +48,7 @@ dependencies {
     implementation("com.robotutor:web-client-starter:1.0.1")
     implementation("com.robotutor:mqtt-starter:1.0.1")
 
+    testImplementation("com.robotutor:robotutor-tech-utils:1.0.11:tests")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.springframework.security:spring-security-test")
@@ -55,7 +56,6 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5-jvm:5.8.0")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
 }
-
 
 dependencyManagement {
     imports {
@@ -73,53 +73,54 @@ kotlin {
     }
 }
 
-//tasks.withType<Test> {
-//    useJUnitPlatform()
-//}
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
 
 // Jacoco configuration
-/*
+
 jacoco {
     toolVersion = "0.8.12"
 }
 
 tasks.test {
     finalizedBy(tasks.jacocoTestReport)
+    jvmArgs("-XX:+EnableDynamicAgentLoading")
 }
 
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    finalizedBy(tasks.jacocoTestCoverageVerification)
-}
-
-tasks.jacocoTestCoverageVerification {
-    dependsOn(tasks.jacocoTestReport)
-}
-
-tasks.jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                counter = "INSTRUCTION"
-                minimum = BigDecimal(0.93)
-            }
-            limit {
-                counter = "BRANCH"
-                minimum = BigDecimal(1)
-            }
-            limit {
-                counter = "LINE"
-                minimum = BigDecimal(0.95)
-            }
-            limit {
-                counter = "METHOD"
-                minimum = BigDecimal(0.80)
-            }
-            limit {
-                counter = "CLASS"
-                minimum = BigDecimal(0.93)
-            }
-        }
-    }
-}
-*/
+//tasks.jacocoTestReport {
+//    dependsOn(tasks.test)
+//    finalizedBy(tasks.jacocoTestCoverageVerification)
+//}
+//
+//tasks.jacocoTestCoverageVerification {
+//    dependsOn(tasks.jacocoTestReport)
+//}
+//
+//tasks.jacocoTestCoverageVerification {
+//    violationRules {
+//        rule {
+//            limit {
+//                counter = "INSTRUCTION"
+//                minimum = BigDecimal(0.32)
+//            }
+//            limit {
+//                counter = "BRANCH"
+//                minimum = BigDecimal(0)
+//            }
+//            limit {
+//                counter = "LINE"
+//                minimum = BigDecimal(0.33)
+//            }
+//            limit {
+//                counter = "METHOD"
+//                minimum = BigDecimal(0.24)
+//            }
+//            limit {
+//                counter = "CLASS"
+//                minimum = BigDecimal(0.25)
+//            }
+//        }
+//    }
+//}
+//
