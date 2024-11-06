@@ -1,16 +1,21 @@
 server:
-  port: ${PORT:9002}
+  port: ${PORT:9003}
 
 spring:
   data:
     mongodb:
-      uri: ${MONGODB_URL}/audit
+      uri: ${MONGODB_URL}/audit-service
   application:
     name: AUDIT-SERVICE
 
 app:
   mqtt:
     broker: ${MQTT_BROKER}
-    client-id: ${spring.application.name}
     username: ${MQTT_USERNAME}
+    clientId: ${spring.application.name}
     password: ${MQTT_PASSWORD}
+  utils:
+    auth-service-base-url: ${AUTH_SERVICE_BASE_URL}
+    internal-access-token: ${INTERNAL_ACCESS_TOKEN}
+    validate-path: /auth/validate
+    open-api-endpoints:
