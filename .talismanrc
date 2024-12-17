@@ -1,4 +1,6 @@
 fileignoreconfig:
 - filename: build.gradle.kts
   checksum: d589d14fbe5e0009ec67e84c734abc7940896852e3ff95835ec55e8258fb95b6
+- filename: src/main/resources/application.yml
+  checksum: ec4da7a3dd2dff2f82d007a94fba1b92725dea95809013d6f8fddc72f03aba1c
 version: ""
