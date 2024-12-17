@@ -1,19 +1,19 @@
 package com.robotutor.audit.service
 
 import com.robotutor.iot.models.AuditMessage
-import com.robotutor.iot.models.MqttTopicName
-import com.robotutor.iot.services.MqttSubscriber
+import com.robotutor.iot.models.KafkaTopicName
+import com.robotutor.iot.services.KafkaConsumer
 import jakarta.annotation.PostConstruct
 import org.springframework.stereotype.Service
 
 @Service
 class AuditMessageSubscriber(
     private val auditService: AuditService,
-    private val mqttSubscriber: MqttSubscriber,
+    private val kafkaConsumer: KafkaConsumer,
 ) {
     @PostConstruct
     fun subscribe() {
-        mqttSubscriber.subscribe(MqttTopicName.AUDIT, AuditMessage::class.java) { msg ->
+        kafkaConsumer.consume(listOf(KafkaTopicName.AUDIT), AuditMessage::class.java) { _, msg ->
             auditService.addAudit(msg).subscribe()
         }
     }
