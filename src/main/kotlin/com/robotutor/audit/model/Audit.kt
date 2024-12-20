@@ -1,6 +1,5 @@
 package com.robotutor.audit.model
 
-import com.robotutor.iot.models.AuditEvent
 import com.robotutor.iot.models.AuditMessage
 import com.robotutor.iot.models.AuditStatus
 import org.bson.types.ObjectId
@@ -24,7 +23,7 @@ data class Audit(
     val accountId: String?,
     val deviceId: String?,
     val metadata: Map<String, Any>,
-    val event: AuditEvent,
+    val event: String,
     val timestamp: LocalDateTime
 ) {
     companion object {
