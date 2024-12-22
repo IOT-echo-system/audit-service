@@ -20,9 +20,8 @@ data class Audit(
     val auditId: AuditId,
     val status: AuditStatus,
     val userId: String,
-    val accountId: String?,
     val deviceId: String?,
-    val metadata: Map<String, Any>,
+    val metadata: Map<String, Any?>,
     val event: String,
     val timestamp: LocalDateTime
 ) {
@@ -35,7 +34,6 @@ data class Audit(
                 metadata = message.metadata,
                 event = message.event,
                 timestamp = message.timestamp,
-                accountId = message.accountId,
                 deviceId = message.deviceId,
             )
         }
