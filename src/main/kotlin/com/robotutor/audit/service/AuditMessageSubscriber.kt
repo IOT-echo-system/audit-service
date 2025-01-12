@@ -13,8 +13,10 @@ class AuditMessageSubscriber(
 ) {
     @PostConstruct
     fun subscribe() {
-        kafkaConsumer.consume(listOf(KafkaTopicName.AUDIT), AuditMessage::class.java) { _, msg ->
-            auditService.addAudit(msg).subscribe()
-        }
+        kafkaConsumer.consume(listOf(KafkaTopicName.AUDIT), AuditMessage::class.java)
+            .flatMap {
+                auditService.addAudit(it.message)
+            }
+            .subscribe()
     }
 }
