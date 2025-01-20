@@ -30,6 +30,7 @@ repositories {
     githubMavenRepository("kafka-starter")
     githubMavenRepository("web-client-starter")
     githubMavenRepository("logging-starter")
+    githubMavenRepository("redis-starter")
 }
 
 dependencies {
@@ -42,10 +43,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.security:spring-security-crypto:5.6.4")
-    implementation("com.robotutor:logging-starter:1.0.1")
-    implementation("com.robotutor:robotutor-tech-utils:1.0.26")
-    implementation("com.robotutor:web-client-starter:1.0.4")
-    implementation("com.robotutor:kafka-starter:1.0.8")
+    implementation("com.robotutor:robotutor-tech-utils:1.0.41")
+    implementation("com.robotutor:kafka-starter:1.0.27")
+    implementation("com.robotutor:logging-starter:1.0.6")
+    implementation("com.robotutor:web-client-starter:1.0.8")
+    implementation("com.robotutor:redis-starter:1.0.28")
 
     testImplementation("com.robotutor:robotutor-tech-utils:1.0.11:tests")
     testImplementation("org.springframework.boot:spring-boot-starter-test")

@@ -20,7 +20,7 @@ data class Audit(
     val auditId: AuditId,
     val status: AuditStatus,
     val userId: String,
-    val deviceId: String?,
+    val premisesId: String?,
     val metadata: Map<String, Any?>,
     val event: String,
     val timestamp: LocalDateTime
@@ -34,10 +34,11 @@ data class Audit(
                 metadata = message.metadata,
                 event = message.event,
                 timestamp = message.timestamp,
-                deviceId = message.deviceId,
+                premisesId = message.premisesId,
             )
         }
     }
 }
 
 typealias AuditId = String
+
